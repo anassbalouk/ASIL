@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "version": 1,
+    "savedAt": "2026-05-02T13:53:24.122Z"
+  },
+  "data": {
+    "APP_PW": "1234",
+    "currentLang": "fr",
+    "currentSoundType": "beep",
+    "clients": [
+      {
+        "id": "CLI1776806249592",
+        "code": "CL0001",
+        "name": "yassine samlali",
+        "phone": "+212654341606",
+        "address": "rue gheriss",
+        "note": "",
+        "paymode": "any",
+        "entryDate": "2026-04-21"
+      }
+    ],
+    "suppliers": [],
+    "products": [
+      {
+        "code": "P001",
+        "name": "Coca Cola 33cl",
+        "price": 10,
+        "stock": 100,
+        "unit": "unité",
+        "image": null,
+        "threshold": 20
+      },
+      {
+        "code": "P002",
+        "name": "Pain Complet",
+        "price": 4,
+        "stock": 50,
+        "unit": "unité",
+        "image": null,
+        "threshold": 10
+      },
+      {
+        "code": "P003",
+        "name": "Lait 1L",
+        "price": 12,
+        "stock": 80,
+        "unit": "unité",
+        "image": null,
+        "threshold": 15
+      },
+      {
+        "code": "P004",
+        "name": "Eau Minérale 1.5L",
+        "price": 5,
+        "stock": 200,
+        "unit": "unité",
+        "image": null,
+        "threshold": 30
+      },
+      {
+        "code": "P005",
+        "name": "Jus Orange",
+        "price": 15,
+        "stock": 8,
+        "unit": "unité",
+        "image": null,
+        "threshold": 10
+      }
+    ],
+    "sales": [],
+    "returns": [],
+    "achats": [],
+    "operations": [
+      {
+        "id": "OP1776806249592",
+        "clientId": "CLI1776806249592",
+        "type": "vente",
+        "montant": 1700,
+        "date": "2026-04-21T21:17:29.592Z",
+        "reference": "Crédit initial",
+        "payMode": "credit",
+        "isInitialCredit": true
+      }
+    ],
+    "trash": [],
+    "eraseBackups": {
+      "ventes": [],
+      "retours": [],
+      "achats": [],
+      "operations": []
+    },
+    "invoiceCounter": 1,
+    "returnCounter": 1,
+    "achatCounter": 1,
+    "factures": [],
+    "factureCounter": 1,
+    "bonCommandes": [],
+    "bonCommandeCounter": 1,
+    "bonLivraisons": [],
+    "bonLivraisonCounter": 1,
+    "companyInfo": {
+      "name": "ASIL CAISSE",
+      "addr": "",
+      "tel": ""
+    },
+    "logoData": null,
+    "signatureData": null,
+    "color": "#22a355",
+    "theme": "matin"
+  }
+}

@@ -1,0 +1,1535 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIL CAISSE — Logiciel de Caisse Professionnel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css?v=20260401e">
+</head>
+
+<body>
+
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.8V21h14V9.8"></path></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M3 4h2l2.1 10.2a1 1 0 0 0 1 .8h10.4a1 1 0 0 0 1-.8L21 7H7"></path></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 17 4 12l5-5"></path><path d="M20 20v-2a6 6 0 0 0-6-6H4"></path></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 14v4"></path><path d="M12 10v8"></path><path d="M17 6v12"></path></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"></path><path d="m3 7 9 5 9-5"></path><path d="M12 12v10"></path></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.9"></path><path d="M16 3.1a4 4 0 0 1 0 7.8"></path></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V8l7 4V8l7 4V3l4 2v16H3z"></path></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><path d="M8 6h8"></path><path d="M8 11h3"></path><path d="M13 11h3"></path><path d="M8 15h3"></path><path d="M13 15h3"></path><path d="M8 19h8"></path></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7L6 7z"></path><path d="M9 7V5a3 3 0 1 1 6 0v2"></path></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M14 7h7v7"></path></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.07.07a2 2 0 1 1-2.83 2.83l-.07-.07a1.8 1.8 0 0 0-1.98-.36 1.8 1.8 0 0 0-1.1 1.64V22a2 2 0 1 1-4 0v-.1a1.8 1.8 0 0 0-1.1-1.64 1.8 1.8 0 0 0-1.98.36l-.07.07a2 2 0 1 1-2.83-2.83l.07-.07a1.8 1.8 0 0 0 .36-1.98A1.8 1.8 0 0 0 2.7 13H2a2 2 0 1 1 0-4h.1a1.8 1.8 0 0 0 1.64-1.1 1.8 1.8 0 0 0-.36-1.98l-.07-.07a2 2 0 1 1 2.83-2.83l.07.07a1.8 1.8 0 0 0 1.98.36H8.2A1.8 1.8 0 0 0 9.3 1.8V2a2 2 0 1 1 4 0v.1a1.8 1.8 0 0 0 1.1 1.64 1.8 1.8 0 0 0 1.98-.36l.07-.07a2 2 0 1 1 2.83 2.83l-.07.07a1.8 1.8 0 0 0-.36 1.98V8.2A1.8 1.8 0 0 0 21.5 9.3H22a2 2 0 1 1 0 4h-.1a1.8 1.8 0 0 0-1.64 1.1z"></path></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18.2A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z"></path><path d="M12 9v5"></path><circle cx="12" cy="17" r="1"></circle></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"></rect><rect x="13" y="3" width="8" height="8"></rect><rect x="3" y="13" width="8" height="8"></rect><rect x="13" y="13" width="8" height="8"></rect></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><circle cx="4" cy="6" r="1"></circle><circle cx="4" cy="12" r="1"></circle><circle cx="4" cy="18" r="1"></circle></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path><path d="M8 21h8"></path></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path></symbol>
+  <symbol id="i-invoice" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8"></path><path d="M8 17h8"></path><path d="M8 9h2"></path></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14l2 2 4-4"></path></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></symbol>
+  <symbol id="i-backup" viewBox="0 0 24 24"><path d="M12 3v8"></path><path d="m8 7 4 4 4-4"></path><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"></path></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21v-8"></path><path d="m8 17 4-4 4 4"></path><path d="M4 9V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><path d="M17 21v-8H7v8"></path><path d="M7 3v5h8"></path></symbol>
+</svg>
+
+    <!-- ══════ LOGIN ══════════════════════════════════════════ -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="login-logo-placeholder"><svg class="icon-svg" style="width:48px;height:48px;stroke:#fff;"><use href="#i-home"></use></svg></div>
+            <h1 data-i18n="appName">ASIL CAISSE</h1>
+            <p data-i18n="appSub">Logiciel de Caisse Professionnel</p>
+            <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;">
+                <button onclick="setLang('fr')" id="login-lang-fr" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all .2s;">🇫🇷 FR</button>
+                <button onclick="setLang('en')" id="login-lang-en" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all .2s;">🇬🇧 EN</button>
+                <button onclick="setLang('ar')" id="login-lang-ar" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all .2s;">🇸🇦 AR</button>
+            </div>
+            <div id="login-error" class="login-error"></div>
+            <div id="login-default-pw-line" style="color:rgba(255,255,255,0.35);font-size:12px;margin-bottom:8px;">Mot de passe par défaut : <strong style="color:rgba(255,255,255,0.6);">1234</strong></div>
+            <input type="password" class="login-input" id="pw-input" data-i18n-ph="pwPlaceholder" placeholder="Mot de passe…" onkeypress="if(event.key==='Enter')doLogin()">
+            <button class="login-btn" onclick="doLogin()" data-i18n="loginBtn">🔓 SE CONNECTER</button>
+            <div style="margin-top:16px;color:rgba(255,255,255,0.25);font-size:12px;">v3.0 Pro • ASIL CAISSE</div>
+        </div>
+    </div>
+
+    <!-- ══════ APP ════════════════════════════════════════════ -->
+    <div id="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-placeholder"><svg class="icon-svg" style="width:20px;height:20px;stroke:#fff;"><use href="#i-home"></use></svg></div>
+                <div class="sidebar-brand">ASIL CAISSE<span>Point de Vente Pro</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section-title" data-i18n="navMain">Principal</div>
+                <div class="nav-item" onclick="showTab('dashboard',this)" data-tab="dashboard"><span class="nav-icon"><svg class="icon-svg"><use href="#i-home"></use></svg></span> <span>Tableau de Bord</span></div>
+                <div class="nav-item active" onclick="showTab('pos',this)" data-tab="pos">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-cart"></use></svg></span> <span data-i18n="navPos">Point de Vente</span>
+                </div>
+                <div class="nav-item" onclick="showTab('retours',this)" data-tab="retours">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-return"></use></svg></span> <span data-i18n="navReturns">Retours</span>
+                </div>
+                <div class="nav-section-title" data-i18n="navManage">Gestion</div>
+                <div class="nav-item" onclick="showTab('inventaire',this)" data-tab="inventaire">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-chart"></use></svg></span> <span data-i18n="navInventory">Inventaire</span>
+                </div>
+                <div class="nav-item" onclick="showTab('produits',this)" data-tab="produits">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-box"></use></svg></span> <span data-i18n="navProducts">Produits</span>
+                </div>
+                <div class="nav-item" onclick="showTab('clients',this)" data-tab="clients">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-users"></use></svg></span> <span data-i18n="navClients">Clients</span>
+                </div>
+                <div class="nav-item" onclick="showTab('fournisseurs',this)" data-tab="fournisseurs"><span class="nav-icon"><svg class="icon-svg"><use href="#i-factory"></use></svg></span> <span data-i18n="navSuppliers">Fournisseurs</span></div>
+                <div class="nav-item" onclick="showTab('calculatrice',this)" data-tab="calculatrice"><span class="nav-icon"><svg class="icon-svg"><use href="#i-calc"></use></svg></span> <span>Calculatrice</span></div>
+                <div class="nav-item" onclick="showTab('achat',this)" data-tab="achat"><span class="nav-icon"><svg class="icon-svg"><use href="#i-bag"></use></svg></span> <span>Point d'Achat</span></div>
+                <div class="nav-section-title">Documents</div>
+                <div class="nav-item" onclick="showTab('factures',this)" data-tab="factures"><span class="nav-icon"><svg class="icon-svg"><use href="#i-invoice"></use></svg></span> <span>Facturation</span></div>
+                <div class="nav-item" onclick="showTab('boncommande',this)" data-tab="boncommande"><span class="nav-icon"><svg class="icon-svg"><use href="#i-clipboard"></use></svg></span> <span>Bon de Commande</span></div>
+                <div class="nav-item" onclick="showTab('bonlivraison',this)" data-tab="bonlivraison"><span class="nav-icon"><svg class="icon-svg"><use href="#i-truck"></use></svg></span> <span>Bon de Livraison</span></div>
+                <div class="nav-section-title" data-i18n="navReports">Rapports</div>
+                <div class="nav-item" onclick="showTab('ventes',this)" data-tab="ventes">
+                    <span class="nav-icon"><svg class="icon-svg"><use href="#i-file"></use></svg></span> <span data-i18n="navSalesHistory">Historique Ventes</span>
+                </div>
+                <div class="nav-item" onclick="showTab('stats',this)" data-tab="stats"><span class="nav-icon"><svg class="icon-svg"><use href="#i-trend"></use></svg></span> <span data-i18n="navStats">Statistiques</span></div>
+                <div class="nav-item" onclick="showTab('parametres',this)" data-tab="parametres"><span class="nav-icon"><svg class="icon-svg"><use href="#i-settings"></use></svg></span> <span>Paramètres</span></div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLang('fr')" id="lang-fr">🇫🇷 FR</button>
+                    <button class="lang-btn" onclick="setLang('en')" id="lang-en">🇬🇧 EN</button>
+                    <button class="lang-btn" onclick="setLang('ar')" id="lang-ar">🇸🇦 AR</button>
+                </div>
+                <button class="sidebar-footer-btn" onclick="doLogout()"><svg class="icon-svg" style="width:14px;height:14px;margin-right:6px;"><use href="#i-logout"></use></svg><span data-i18n="logout">Déconnexion</span></button>
+                <div class="sidebar-datetime" id="sidebar-clock"></div>
+            </div>
+        </aside>
+        <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
+
+        <!-- MAIN -->
+        <div class="main-area">
+            <div class="topbar">
+                <button class="topbar-menu-btn" type="button" onclick="toggleSidebar()" aria-label="Menu"><svg class="icon-svg"><use href="#i-menu"></use></svg></button>
+                <div class="topbar-title" id="topbar-title"><svg class="icon-svg" style="width:18px;height:18px;margin-right:6px;"><use href="#i-cart"></use></svg><span>Point de Vente</span></div>
+                <div id="stock-alert-badge" class="topbar-badge" style="display:none;"><svg class="icon-svg" style="width:12px;height:12px;margin-right:4px;"><use href="#i-alert"></use></svg>Rupture de stock</div>
+            </div>
+
+            <div class="main-content">
+                <div id="global-alert" class="alert-banner"></div>
+
+                <!-- DASHBOARD -->
+                <div id="tab-dashboard" class="tab-pane active">
+                    <div class="card" style="margin-bottom:16px;">
+                        <div style="font-size:22px;font-weight:900;color:var(--green-dark);" id="dash-welcome">🌟 Bienvenue sur ASIL CAISSE</div>
+                        <div style="font-size:13px;color:var(--gray-600);margin-top:4px;" id="dash-date"></div>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dash-card green" onclick="showTab('pos',document.querySelector('[data-tab=pos]'))">
+                            <div class="dash-card-icon">🛒</div>
+                            <div class="dash-card-title">Point de Vente</div>
+                            <div class="dash-card-sub">Ventes & encaissements</div>
+                        </div>
+                        <div class="dash-card blue" onclick="showTab('achat',document.querySelector('[data-tab=achat]'))">
+                            <div class="dash-card-icon">🛍️</div>
+                            <div class="dash-card-title">Point d'Achat</div>
+                            <div class="dash-card-sub">Bons d'achat fournisseurs</div>
+                        </div>
+                        <div class="dash-card orange" onclick="showTab('retours',document.querySelector('[data-tab=retours]'))">
+                            <div class="dash-card-icon">↩️</div>
+                            <div class="dash-card-title">Point de Retour</div>
+                            <div class="dash-card-sub">Gestion des retours</div>
+                        </div>
+                        <div class="dash-card purple" onclick="showTab('inventaire',document.querySelector('[data-tab=inventaire]'))">
+                            <div class="dash-card-icon">🚚</div>
+                            <div class="dash-card-title">Point de Livraison</div>
+                            <div class="dash-card-sub">Stock & inventaire</div>
+                        </div>
+                        <div class="dash-card teal" onclick="showTab('factures',document.querySelector('[data-tab=factures]'))">
+                            <div class="dash-card-icon">🧾</div>
+                            <div class="dash-card-title">Facturation</div>
+                            <div class="dash-card-sub">Créer & gérer les factures</div>
+                        </div>
+                        <div class="dash-card indigo" onclick="showTab('boncommande',document.querySelector('[data-tab=boncommande]'))">
+                            <div class="dash-card-icon">📋</div>
+                            <div class="dash-card-title">Bon de Commande</div>
+                            <div class="dash-card-sub">Commandes fournisseurs</div>
+                        </div>
+                        <div class="dash-card amber" onclick="showTab('bonlivraison',document.querySelector('[data-tab=bonlivraison]'))">
+                            <div class="dash-card-icon">🚛</div>
+                            <div class="dash-card-title">Bon de Livraison</div>
+                            <div class="dash-card-sub">Livraisons clients</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid" style="margin-top:20px;">
+                        <div class="dash-card green" style="cursor:default;">
+                            <div class="stat-label">CA Aujourd'hui</div>
+                            <div class="stat-value" id="dash-ca">0 DH</div>
+                            <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">📈 Voir Statistiques</div>
+                        </div>
+                        <div class="dash-card orange" style="cursor:default;">
+                            <div class="stat-label">Produits</div>
+                            <div class="stat-value" id="dash-prods">0</div>
+                            <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">📦 Voir Inventaire</div>
+                        </div>
+                        <div class="dash-card blue" style="cursor:default;">
+                            <div class="stat-label">Clients</div>
+                            <div class="stat-value" id="dash-clients">0</div>
+                            <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">👥 Voir Clients</div>
+                        </div>
+                        <div class="dash-card red" style="cursor:default;">
+                            <div class="stat-label">Ruptures Stock</div>
+                            <div class="stat-value" id="dash-ruptures">0</div>
+                            <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">Voir Inventaire</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ══ POS TAB ══════════════════════════════════════ -->
+                <div id="tab-pos" class="tab-pane">
+                    <div class="pos-layout">
+                        <!-- LEFT: Product search + grid -->
+                        <div class="pos-left">
+                            <div class="pos-search-card">
+                                <div style="display:flex;gap:10px;align-items:center;">
+                                    <div class="search-box" style="flex:1;">
+                                        <span class="search-icon-left"><svg class="icon-svg"><use href="#i-search"></use></svg></span>
+                                        <input type="text" id="pos-search" data-i18n-ph="searchProduct" placeholder="Rechercher un produit…" oninput="posSearch()" autocomplete="off">
+                                        <button class="voice-search-btn" id="voice-btn-pos" onclick="startVoice('pos-search', posSearch)" title="Recherche vocale"><svg class="icon-svg"><use href="#i-mic"></use></svg></button>
+                                    </div>
+                                    <div class="pos-view-toggle">
+                                        <button class="view-btn active" id="view-grid-btn" onclick="setView('grid')" title="Grille"><svg class="icon-svg"><use href="#i-grid"></use></svg></button>
+                                        <button class="view-btn" id="view-list-btn" onclick="setView('list')" title="Liste"><svg class="icon-svg"><use href="#i-list"></use></svg></button>
+                                    </div>
+                                    <button class="sort-btn" id="sort-alpha-btn" onclick="toggleAlphaSort()">A→Z</button>
+                                </div>
+                                <div class="category-bar" id="pos-categories">
+                                    <button class="cat-btn active" data-cat="" onclick="setPosCategory(this,'')">🌐 Tous</button>
+                                </div>
+                            </div>
+                            <div class="pos-grid-wrap">
+                                <div id="pos-product-grid" class="product-grid"></div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT: Cart panel -->
+                        <div class="cart-panel">
+                            <div class="cart-header">
+                                <div style="display:flex;align-items:center;justify-content:space-between;">
+                                    <h3 data-i18n="cart">🧾 Bon de Vente</h3>
+                                    <span id="cart-count" style="font-size:11px;color:rgba(255,255,255,0.7);font-weight:700;background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:20px;">0 <span data-i18n="articles">article(s)</span></span>
+                                </div>
+                                <!-- Client combobox (existant) -->
+                                <div style="position:relative;margin-top:8px;">
+                                    <input type="text" id="pos-client-search" placeholder="👤 Rechercher client existant…" autocomplete="off" style="width:100%;padding:8px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:12px;"
+                                        oninput="filterClientDropdown()" onfocus="showClientDropdown()" onblur="setTimeout(hideClientDropdown,200)">
+                                    <div id="client-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:999;max-height:180px;overflow-y:auto;"></div>
+                                    <input type="hidden" id="pos-client">
+                                </div>
+                                <!-- Nouveau client libre : nom + téléphone -->
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;">
+                                    <input type="text" id="pos-free-name" placeholder="✍️ Nom client (libre)" autocomplete="off" style="padding:7px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);background:rgba(255,255,255,0.08);color:#fff;font-family:inherit;font-size:12px;"
+                                        oninput="onFreeClientInput()">
+                                    <input type="tel" id="pos-free-phone" placeholder="📞 Téléphone" style="padding:7px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);background:rgba(255,255,255,0.08);color:#fff;font-family:inherit;font-size:12px;">
+                                </div>
+                                <!-- Client info card -->
+                                <div id="pos-client-info" style="display:none;background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 10px;margin-top:6px;font-size:11px;color:rgba(255,255,255,0.85);line-height:1.6;"></div>
+                                <!-- Quick qty + custom price row -->
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;">
+                                    <input type="number" id="pos-custom-qty" min="0.01" step="0.01" placeholder="🔢 Quantité" value="1" style="padding:7px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:12px;">
+                                    <input type="number" id="pos-custom-price" min="0" step="0.01" placeholder="💲 Prix unitaire" style="padding:7px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-sm);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:12px;">
+                                </div>
+                            </div>
+                            <!-- CART TABLE -->
+                            <div class="cart-items" id="cart-items-list" style="padding:0;overflow-x:auto;">
+                                <div style="text-align:center;padding:40px 20px;color:var(--gray-600);">
+                                    <div style="font-size:40px;margin-bottom:8px;">🛒</div>
+                                    <div style="font-size:13px;" data-i18n="selectProducts">Sélectionnez des produits →</div>
+                                </div>
+                            </div>
+                            <div class="cart-footer">
+                                <div class="cart-totals">
+                                    <div class="cart-total-row"><span data-i18n="subtotal">Sous-total</span><span id="ct-sub">0.00 DH</span></div>
+                                    <div class="cart-total-row" style="color:var(--red);"><span data-i18n="discount">Remise</span><span id="ct-disc">0.00 DH</span></div>
+                                    <div class="cart-total-row big"><span data-i18n="total">TOTAL</span><span id="ct-total">0.00 DH</span></div>
+                                </div>
+                                <div class="payment-tabs">
+                                    <button class="pay-tab active" id="pay-cash" onclick="setPayMode('especes')">
+                  <span class="pay-icon"><svg class="icon-svg"><use href="#i-save"></use></svg></span>
+                  <span class="pay-label" data-i18n="cash">Espèces</span>
+                </button>
+                                    <button class="pay-tab credit-tab" id="pay-credit" onclick="setPayMode('credit')">
+                  <span class="pay-icon"><svg class="icon-svg"><use href="#i-file"></use></svg></span>
+                  <span class="pay-label" data-i18n="credit">Crédit</span>
+                </button>
+                                    <button class="pay-tab" id="pay-cheque" onclick="setPayMode('cheque')" style="background:rgba(21,101,192,0.15);">
+                  <span class="pay-icon"><svg class="icon-svg"><use href="#i-home"></use></svg></span>
+                  <span class="pay-label">Chèque</span>
+                </button>
+                                    <button class="pay-tab" id="pay-virement" onclick="setPayMode('virement')" style="background:rgba(106,27,154,0.15);">
+                  <span class="pay-icon"><svg class="icon-svg"><use href="#i-trend"></use></svg></span>
+                  <span class="pay-label">Virement</span>
+                </button>
+                                </div>
+                                <div id="cash-block">
+                                    <input type="number" class="received-input" id="pos-received" data-i18n-ph="amountReceived" placeholder="Montant reçu…" oninput="calcChange()" step="0.01">
+                                    <div class="change-display">
+                                        <label data-i18n="change">MONNAIE</label>
+                                        <div class="change-val" id="pos-change">0.00 DH</div>
+                                    </div>
+                                </div>
+                                <div id="credit-block" style="display:none;background:#fff8e1;border-radius:var(--radius-sm);padding:10px;margin-bottom:8px;font-size:12px;font-weight:700;color:#f57f17;text-align:center;">
+                                    ⚠️ Crédit — entrez le nom du client (existant ou libre)
+                                </div>
+                                <button class="btn-checkout" onclick="checkout()" data-i18n="validateSale">VALIDER LA VENTE</button>
+                                <div class="btn-row">
+                                    <button class="btn-sm btn-print" onclick="printReceipt()"><span data-i18n="print">Imprimer</span></button>
+                                    <button class="btn-sm btn-clear" onclick="clearCart()"><span data-i18n="clearCart">Vider</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ RETOURS TAB ══════════════════════════════════ -->
+                <div id="tab-retours" class="tab-pane">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div class="card" style="max-width:none;">
+                            <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                                <span>↩️ Gestion des Retours</span>
+                                <button onclick="cancelReturn()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:12px;">✕ Annuler</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>📅 Date du retour</label>
+                                    <input class="form-control" type="date" id="ret-date">
+                                </div>
+                                <div class="form-group">
+                                    <label>👤 Client</label>
+                                    <input class="form-control" type="text" id="ret-client-name" placeholder="Nom du client…" list="ret-client-datalist" autocomplete="off">
+                                    <datalist id="ret-client-datalist"></datalist>
+                                </div>
+                            </div>
+                            <!-- Type opération retour -->
+                            <div style="background:#fff3e0;border-radius:10px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                                <span style="font-weight:800;font-size:13px;color:#e65100;">📋 Type d'opération :</span>
+                                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:2px solid #f57c00;background:#fff8e1;color:#e65100;">
+                <input type="radio" name="ret-op-type" value="vente" checked onchange="retOpTypeChange()" style="accent-color:#e65100;"> Retour de vente
+              </label>
+                                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:2px solid #1565c0;background:#e3f2fd;color:#1565c0;">
+                <input type="radio" name="ret-op-type" value="achat" onchange="retOpTypeChange()" style="accent-color:#1565c0;"> Retour d'achat
+              </label>
+                            </div>
+                            <div id="ret-products-list" style="margin-bottom:10px;"></div>
+                            <div style="background:var(--gray-50);border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div id="ret-add-product-title" style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:8px;">➕ Ajouter un produit</div>
+                                <div class="form-row" style="margin-bottom:8px;">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>📦 Produit (nom ou réf.)</label>
+                                        <input class="form-control" type="text" id="ret-product-name" placeholder="Nom ou référence…" list="ret-product-datalist" autocomplete="off" oninput="calcRetProductPrice()">
+                                        <datalist id="ret-product-datalist"></datalist>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label id="ret-qty-label">Quantité</label>
+                                        <input class="form-control" type="number" id="ret-qty" step="0.01" min="0.01" oninput="calcRetProductPrice()">
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                                    <div class="form-group" style="margin-bottom:0;flex:1;">
+                                        <label style="font-size:11px;font-weight:800;color:var(--gray-600);">💲 Prix unitaire de vente (DH)</label>
+                                        <input class="form-control" type="number" id="ret-unit-price" step="0.01" min="0" placeholder="Prix de vente…" oninput="calcRetProductPrice()" style="font-size:14px;font-weight:800;">
+                                    </div>
+                                    <div style="align-self:flex-end;padding-bottom:4px;background:#fff;border-radius:8px;padding:8px 12px;font-size:13px;font-weight:800;color:var(--red);min-width:110px;">💰 <span id="ret-product-price-preview">0.00 DH</span></div>
+                                </div>
+                                <button class="btn btn-primary" style="padding:9px 16px;width:100%;" onclick="addReturnProduct()">➕ Ajouter le produit</button>
+                            </div>
+                            <div class="refund-display">
+                                <h3>TOTAL REMBOURSÉ</h3>
+                                <div class="big" id="ret-amount">0.00 DH</div>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                                <button class="btn btn-primary" style="padding:13px;" onclick="saveReturn()">↩️ ENREGISTRER</button>
+                                <button class="btn" style="padding:13px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;" onclick="printCurrentReturnSlip()">🖨️ BON DE RETOUR</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📋 Historique Retours</div>
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="ret-search" placeholder="Rechercher…" oninput="filterReturns()">
+                            </div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:var(--gray-50);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
+                                <div>
+                                    <div id="returns-actions-title" style="font-size:12px;font-weight:900;color:var(--gray-700);">Actions rapides</div>
+                                    <div id="returns-recover-count" style="font-size:11px;color:var(--gray-600);">0 lignes recuperables (sans limite de duree)</div>
+                                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--gray-600);margin-top:6px;cursor:pointer;">
+                                        <input type="checkbox" id="returns-select-all-visible" onchange="toggleSelectAllReturns(this.checked)">
+                                        <span id="returns-select-all-label">Tout selectionner</span>
+                                    </label>
+                                </div>
+                                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                    <button id="returns-delete-btn" onclick="eraseReturnsHistoryDirect()" class="btn btn-danger" style="font-size:12px;padding:8px 12px;">🗑️ Effacer historique retours</button>
+                                    <button id="returns-recover-btn" onclick="recoverReturnsHistoryDirect()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Recuperer historique retours</button>
+                                    <button id="returns-delete-selected-btn" onclick="deleteSelectedReturns()" class="btn btn-danger" style="font-size:12px;padding:8px 12px;">🗑️ Supprimer selection</button>
+                                    <button id="returns-recover-selected-btn" onclick="recoverSelectedReturns()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#e8f5e9;color:#2e7d32;font-weight:700;cursor:pointer;">↺ Recuperer selection</button>
+                                    <button id="returns-permanent-delete-selected-btn" onclick="permanentlyDeleteSelectedReturns()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#212121;color:#fff;font-weight:700;cursor:pointer;">💀 Supprimer definitivement</button>
+                                    <button id="returns-permanent-delete-all-btn" onclick="permanentlyDeleteAllReturnsDeleted()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#4e342e;color:#fff;font-weight:700;cursor:pointer;">☠️ Tout supprimer definitivement</button>
+                                </div>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th>N°</th>
+                                        <th>Date</th>
+                                        <th>Client</th>
+                                        <th>Produits</th>
+                                        <th>Total</th>
+                                        <th>Bon</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="returns-table"></tbody>
+                            </table>
+                            <div style="margin-top:10px;background:var(--gray-50);border-radius:10px;padding:10px 12px;">
+                                <div id="returns-deleted-title" style="font-size:12px;font-weight:900;color:var(--gray-700);margin-bottom:8px;">Retours supprimes</div>
+                                <div id="returns-deleted-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ ACHAT TAB ═════════════════════════════════════ -->
+                <div id="tab-achat" class="tab-pane">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div class="card">
+                            <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                                <span id="achat-title-text">🛍️ Nouveau Bon Achat</span>
+                                <button id="achat-cancel-btn" onclick="cancelAchat()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:12px;">✕ Annuler</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label id="achat-bon-label">🔢 N° de Bon <small style="color:var(--gray-600)">(modifiable)</small></label>
+                                    <input class="form-control" type="text" id="achat-bon">
+                                </div>
+                                <div class="form-group">
+                                    <label id="achat-supplier-label">🏭 Fournisseur</label>
+                                    <input class="form-control" type="text" id="achat-supplier" placeholder="Nom fournisseur…" list="achat-supplier-dl">
+                                    <datalist id="achat-supplier-dl"></datalist>
+                                </div>
+                            </div>
+                            <div style="background:var(--gray-50);border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div id="achat-add-product-title" style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:8px;">➕ Ajouter un produit</div>
+                                <div class="achat-product-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end;">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label id="achat-product-label">Produit (Réf. ou Nom)</label>
+                                        <input class="form-control" type="text" id="achat-prod-name" placeholder="Recherche…" list="achat-prod-dl">
+                                        <datalist id="achat-prod-dl"></datalist>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label id="achat-qty-label">Quantité</label>
+                                        <input class="form-control" type="number" id="achat-prod-qty" step="0.01" min="0.01">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label id="achat-price-label">Prix Unit. DH</label>
+                                        <input class="form-control" type="number" id="achat-prod-price" step="0.01" min="0">
+                                    </div>
+                                    <button id="achat-add-btn" class="btn btn-primary" style="padding:10px;" onclick="addAchatProduct()" aria-label="Ajouter" title="Ajouter">Ajouter</button>
+                                </div>
+                            </div>
+                            <div id="achat-products-list"></div>
+                            <div class="achat-total-bar"><span id="achat-total-label">💰 TOTAL ACHATS</span><span id="achat-total">0.00 DH</span></div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+                                <button id="achat-save-btn" class="btn btn-primary" style="padding:13px;" onclick="saveAchat()">💾 ENREGISTRER</button>
+                                <button id="achat-print-btn" class="btn" style="padding:13px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;" onclick="printAchatBon()">🖨️ BON D'ACHAT</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div id="achat-history-title" class="card-title">📋 Historique Achats</div>
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="achat-search" placeholder="Rechercher…" oninput="filterAchats()">
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th>N° Bon</th>
+                                        <th>Date</th>
+                                        <th>Fournisseur</th>
+                                        <th>Total</th>
+                                        <th>Bon</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="achat-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- ══ INVENTAIRE TAB ═══════════════════════════════ -->
+                <div id="tab-inventaire" class="tab-pane">
+                    <div class="stats-grid" style="margin-bottom:20px;">
+                        <div class="stat-card">
+                            <div class="stat-label" data-i18n="totalProducts">Total Produits</div>
+                            <div class="stat-value" id="inv-stat-total">0</div>
+                        </div>
+                        <div class="stat-card orange">
+                            <div class="stat-label" data-i18n="lowStock">Stock Faible</div>
+                            <div class="stat-value" id="inv-stat-low">0</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-label" data-i18n="outStock">Rupture</div>
+                            <div class="stat-value" id="inv-stat-out">0</div>
+                        </div>
+                        <div class="stat-card blue">
+                            <div class="stat-label" data-i18n="stockValue">Valeur Stock</div>
+                            <div class="stat-value" id="inv-stat-val">0 DH</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">📊 <span data-i18n="stockStatus">État du Stock</span></div>
+                        <div class="zone-search" style="margin-bottom:14px;">
+                            <span class="zsearch-icon">🔍</span>
+                            <input type="text" id="inv-search" data-i18n-ph="search" placeholder="Rechercher dans le stock…" oninput="filterInventory()">
+                        </div>
+                        <div id="inv-grid" class="inv-grid"></div>
+                    </div>
+                </div>
+
+                <!-- ══ PRODUITS TAB ════════════════════════════════ -->
+                <div id="tab-produits" class="tab-pane">
+                    <div class="card">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                            <div class="card-title" style="margin-bottom:0;">📦 <span data-i18n="productList">Liste des Produits</span></div>
+                            <button class="btn btn-primary" onclick="openProductModal()" data-i18n="newProduct">➕ Nouveau Produit</button>
+                        </div>
+                        <div class="search-wrapper">
+                            <div class="search-box" style="max-width:350px;">
+                                <span class="search-icon-left">🔍</span>
+                                <input type="text" id="prod-search" data-i18n-ph="search" placeholder="Rechercher…" oninput="filterProdList()">
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Code</th>
+                                    <th>Nom</th>
+                                    <th>Prix Vente</th>
+                                    <th>Prix Achat</th>
+                                    <th>Stock</th>
+                                    <th>Unité</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="prod-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ══ CLIENTS TAB ═════════════════════════════════ -->
+                <div id="tab-clients" class="tab-pane">
+                    <div class="stats-grid" style="margin-bottom:16px;">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Clients</div>
+                            <div class="stat-value" id="cli-stat-total">0</div>
+                        </div>
+                        <div class="stat-card orange">
+                            <div class="stat-label">Total Crédit</div>
+                            <div class="stat-value" id="cli-stat-credit">0 DH</div>
+                        </div>
+                        <div class="stat-card blue">
+                            <div class="stat-label">Total Ventes</div>
+                            <div class="stat-value" id="cli-stat-ventes">0 DH</div>
+                        </div>
+                        <div class="stat-card" style="border-left-color:#2e7d32;">
+                            <div class="stat-label">Total Paiements</div>
+                            <div class="stat-value" id="cli-stat-paie" style="color:#2e7d32;">0 DH</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="zone-toolbar">
+                            <div class="zone-search"><span class="zsearch-icon">🔍</span><input type="text" id="client-search" placeholder="Rechercher un client…" oninput="filterClients()"></div>
+                            <button class="btn btn-primary" onclick="openClientModal()">➕ Nouveau Client</button>
+                            <button onclick="deleteAllClients()" style="padding:9px 16px;border:none;border-radius:8px;background:#ffebee;color:#c62828;font-weight:800;cursor:pointer;font-size:13px;">🗑️ Tout supprimer</button>
+                        </div>
+                        <table class="data-table" style="margin-top:0;">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Code Client</th>
+                                    <th>Téléphone</th>
+                                    <th>Adresse</th>
+                                    <th>Total Ventes</th>
+                                    <th>Total Paiements</th>
+                                    <th>Total Retours</th>
+                                    <th style="background:#c62828;">Crédit (Reste à payer)</th>
+                                    <th>Remarque</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="client-table-body"></tbody>
+                        </table>
+                    </div>
+                    <!-- Client detail panel -->
+                    <div id="client-detail-panel" style="display:none;" class="card" style="margin-top:16px;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                            <div class="card-title" id="client-detail-title" style="margin-bottom:0;">📂 Dossier Client</div>
+                            <button id="client-detail-close-btn" onclick="closeClientDetail()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:700;">✕ Fermer</button>
+                        </div>
+                        <div class="stats-grid" style="margin-bottom:16px;">
+                            <div class="stat-card">
+                                <div id="cd-stat-sales-label" class="stat-label">Total Ventes (Crédit)</div>
+                                <div class="stat-value" id="cd-ventes">0 DH</div>
+                            </div>
+                            <div class="stat-card orange">
+                                <div id="cd-stat-payments-label" class="stat-label">Total Paiements</div>
+                                <div class="stat-value" id="cd-paie">0 DH</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#2e7d32;">
+                                <div id="cd-stat-returns-label" class="stat-label">Total Retours</div>
+                                <div class="stat-value" id="cd-retours" style="color:#2e7d32;">0 DH</div>
+                            </div>
+                            <div class="stat-card red">
+                                <div id="cd-stat-credit-label" class="stat-label">Crédit Actuel</div>
+                                <div class="stat-value" id="cd-credit">0 DH</div>
+                            </div>
+                        </div>
+                        <!-- Payment form -->
+                        <div style="background:#e8f5e9;border-radius:10px;padding:14px;margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                            <span id="cd-payment-title" style="font-weight:900;font-size:14px;color:#2e7d32;">💳 Enregistrer un paiement :</span>
+                            <input type="number" id="pay-amount" placeholder="Montant DH" style="padding:8px 12px;border:2px solid #a5d6a7;border-radius:8px;font-family:inherit;font-size:14px;width:160px;" step="0.01" min="0.01">
+                            <textarea id="pay-note" placeholder="📝 Remarque (optionnel)" style="padding:8px 12px;border:2px solid #a5d6a7;border-radius:8px;font-family:inherit;font-size:13px;flex:1;min-width:150px;resize:vertical;min-height:38px;"></textarea>
+                            <button id="cd-payment-validate-btn" class="btn btn-primary" onclick="saveClientPayment()" style="background:linear-gradient(135deg,#2e7d32,#43a047);">✅ Valider Paiement</button>
+                        </div>
+                        <!-- TABLE VENTES -->
+                        <div style="margin-bottom:18px;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="cd-sales-title" style="font-weight:900;font-size:14px;color:var(--red);">🛒 Ventes à Crédit</div>
+                                <button id="cd-print-sales-btn" onclick="printClientSection('ventes')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,var(--green-main),var(--green-light));color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Ventes</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="cd-sales-th-date">Date</th>
+                                        <th id="cd-sales-th-ref">Référence</th>
+                                        <th id="cd-sales-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cd-ventes-table"></tbody>
+                            </table>
+                        </div>
+                        <!-- TABLE PAIEMENTS -->
+                        <div style="margin-bottom:18px;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="cd-payments-title" style="font-weight:900;font-size:14px;color:#2e7d32;">💵 Paiements</div>
+                                <button id="cd-print-payments-btn" onclick="printClientSection('paiements')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,var(--green-main),var(--green-light));color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Paiements</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="cd-payments-th-date">Date</th>
+                                        <th id="cd-payments-th-note">📝 Remarque</th>
+                                        <th id="cd-payments-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cd-paie-table"></tbody>
+                            </table>
+                        </div>
+                        <!-- TABLE RETOURS -->
+                        <div>
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="cd-returns-title" style="font-weight:900;font-size:14px;color:#f57c00;">↩️ Retours</div>
+                                <button id="cd-print-returns-btn" onclick="printClientSection('retours')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,var(--green-main),var(--green-light));color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Retours</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="cd-returns-th-date">Date</th>
+                                        <th id="cd-returns-th-ref">Référence</th>
+                                        <th id="cd-returns-th-products">Produits Retournés</th>
+                                        <th id="cd-returns-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cd-ret-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ FOURNISSEURS TAB ════════════════════════════ -->
+                <div id="tab-fournisseurs" class="tab-pane">
+                    <div class="stats-grid" style="margin-bottom:16px;">
+                        <div class="stat-card blue">
+                            <div class="stat-label">Total Fournisseurs</div>
+                            <div class="stat-value" id="sup-stat-total">0</div>
+                        </div>
+                        <div class="stat-card orange">
+                            <div class="stat-label">Total Dû</div>
+                            <div class="stat-value" id="sup-stat-du">0 DH</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Achats</div>
+                            <div class="stat-value" id="sup-stat-achats">0 DH</div>
+                        </div>
+                        <div class="stat-card" style="border-left-color:#2e7d32;">
+                            <div class="stat-label">Total Payé</div>
+                            <div class="stat-value" id="sup-stat-paye" style="color:#2e7d32;">0 DH</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="zone-toolbar">
+                            <div class="zone-search"><span class="zsearch-icon">🔍</span><input type="text" id="supplier-search" placeholder="Rechercher un fournisseur…" oninput="filterSuppliers()"></div>
+                            <button class="btn btn-primary" onclick="openSupplierModal()">➕ Nouveau Fournisseur</button>
+                            <button onclick="deleteAllSuppliers()" style="padding:9px 16px;border:none;border-radius:8px;background:#ffebee;color:#c62828;font-weight:800;cursor:pointer;font-size:13px;">🗑️ Tout supprimer</button>
+                        </div>
+                        <table class="data-table" style="margin-top:0;">
+                            <thead>
+                                <tr>
+                                    <th>Fournisseur</th>
+                                    <th>Téléphone</th>
+                                    <th>Adresse</th>
+                                    <th>Total Achats</th>
+                                    <th>Total Paiements</th>
+                                    <th style="background:#1565c0;">Montant Dû</th>
+                                    <th>Remarque</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="supplier-table-body"></tbody>
+                        </table>
+                    </div>
+                    <!-- Supplier detail panel -->
+                    <div id="supplier-detail-panel" style="display:none;" class="card" style="margin-top:16px;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                            <div class="card-title" id="supplier-detail-title" style="margin-bottom:0;">📂 Dossier Fournisseur</div>
+                            <button id="supplier-detail-close-btn" onclick="closeSupplierDetail()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:700;">✕ Fermer</button>
+                        </div>
+                        <div class="stats-grid" style="margin-bottom:16px;">
+                            <div class="stat-card blue">
+                                <div id="sd-stat-purchases-label" class="stat-label">Total Achats</div>
+                                <div class="stat-value" id="sd-achats">0 DH</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#2e7d32;">
+                                <div id="sd-stat-payments-label" class="stat-label">Total Paiements</div>
+                                <div class="stat-value" id="sd-paie" style="color:#2e7d32;">0 DH</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#f57c00;">
+                                <div id="sd-stat-returns-label" class="stat-label">Total Retours</div>
+                                <div class="stat-value" id="sd-ret-total" style="color:#f57c00;">0 DH</div>
+                            </div>
+                            <div class="stat-card orange">
+                                <div id="sd-stat-due-label" class="stat-label">Montant Dû</div>
+                                <div class="stat-value" id="sd-du">0 DH</div>
+                            </div>
+                        </div>
+                        <div style="background:#e3f2fd;border-radius:10px;padding:14px;margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                            <span id="sd-payment-title" style="font-weight:900;font-size:14px;color:#1565c0;">💳 Enregistrer un paiement :</span>
+                            <input type="number" id="sup-pay-amount" placeholder="Montant DH" style="padding:8px 12px;border:2px solid #90caf9;border-radius:8px;font-family:inherit;font-size:14px;width:160px;" step="0.01" min="0.01">
+                            <textarea id="sup-pay-note" placeholder="📝 Remarque (optionnel)" style="padding:8px 12px;border:2px solid #90caf9;border-radius:8px;font-family:inherit;font-size:13px;flex:1;min-width:150px;resize:vertical;min-height:38px;"></textarea>
+                            <button id="sd-payment-validate-btn" class="btn" onclick="saveSupplierPayment()" style="background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;padding:10px 18px;border-radius:8px;cursor:pointer;border:none;">✅ Valider Paiement</button>
+                        </div>
+                        <!-- TABLE ACHATS -->
+                        <div style="margin-bottom:18px;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="sd-purchases-title" style="font-weight:900;font-size:14px;color:#1565c0;">🛒 Achats</div>
+                                <button id="sd-print-purchases-btn" onclick="printSupplierSection('achats')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Achats</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="sd-purchases-th-date">Date</th>
+                                        <th id="sd-purchases-th-ref">Référence</th>
+                                        <th id="sd-purchases-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sd-achats-table"></tbody>
+                            </table>
+                        </div>
+                        <!-- TABLE PAIEMENTS -->
+                        <div style="margin-bottom:18px;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="sd-payments-title" style="font-weight:900;font-size:14px;color:#2e7d32;">💵 Paiements</div>
+                                <button id="sd-print-payments-btn" onclick="printSupplierSection('paiements')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Paiements</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="sd-payments-th-date">Date</th>
+                                        <th id="sd-payments-th-note">📝 Remarque</th>
+                                        <th id="sd-payments-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sd-paie-table"></tbody>
+                            </table>
+                        </div>
+                        <!-- TABLE RETOURS FOURNISSEUR -->
+                        <div>
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div id="sd-returns-title" style="font-weight:900;font-size:14px;color:#f57c00;">↩️ Retours Fournisseur</div>
+                                <button id="sd-print-returns-btn" onclick="printSupplierSection('retours')" style="padding:5px 12px;border:none;border-radius:6px;background:linear-gradient(135deg,#e65100,#f57c00);color:#fff;font-size:12px;cursor:pointer;font-weight:700;">🖨️ Bon Retours</button>
+                            </div>
+                            <!-- Enregistrer un retour fournisseur -->
+                            <div style="background:#fff3e0;border-radius:10px;padding:12px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                                <span id="sd-return-register-title" style="font-weight:900;font-size:13px;color:#e65100;">↩️ Enregistrer un retour :</span>
+                                <input type="number" id="sup-ret-amount" placeholder="Montant DH" style="padding:7px 10px;border:2px solid #ffcc80;border-radius:8px;font-family:inherit;font-size:13px;width:140px;" step="0.01" min="0.01">
+                                <input type="text" id="sup-ret-note" placeholder="📝 Référence / motif" style="padding:7px 10px;border:2px solid #ffcc80;border-radius:8px;font-family:inherit;font-size:13px;flex:1;min-width:120px;">
+                                <button id="sd-return-validate-btn" class="btn" onclick="saveSupplierReturn()" style="background:linear-gradient(135deg,#e65100,#f57c00);color:#fff;font-weight:800;padding:8px 14px;border-radius:8px;cursor:pointer;border:none;font-size:13px;">✅ Valider</button>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="sd-returns-th-date">Date</th>
+                                        <th id="sd-returns-th-ref">Référence</th>
+                                        <th id="sd-returns-th-amount">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sd-ret-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ CALCULATRICE (sous Fournisseurs) ════════════ -->
+                <div id="tab-calculatrice" class="tab-pane">
+                    <div class="card" style="max-width:360px;margin:0 auto;">
+                        <div class="card-title">🧮 Calculatrice</div>
+                        <div id="calc-display" style="background:var(--gray-800);color:#2ecc71;font-size:28px;font-weight:900;font-family:'Fira Code',monospace;text-align:right;padding:16px 18px;border-radius:10px;margin-bottom:14px;min-height:64px;word-break:break-all;letter-spacing:1px;">0</div>
+                        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+                            <button onclick="calcBtn('C')" style="grid-column:span 2;padding:14px;font-size:15px;font-weight:800;border:none;border-radius:8px;background:#ffebee;color:var(--red);cursor:pointer;">C</button>
+                            <button onclick="calcBtn('⌫')" style="padding:14px;font-size:18px;font-weight:800;border:none;border-radius:8px;background:#fff3e0;color:#e65100;cursor:pointer;">⌫</button>
+                            <button onclick="calcBtn('%')" style="padding:14px;font-size:16px;font-weight:800;border:none;border-radius:8px;background:var(--green-glow);color:var(--green-dark);cursor:pointer;">%</button>
+                            <button onclick="calcBtn('7')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">7</button>
+                            <button onclick="calcBtn('8')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">8</button>
+                            <button onclick="calcBtn('9')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">9</button>
+                            <button onclick="calcBtn('÷')" style="padding:14px;font-size:17px;font-weight:800;border:none;border-radius:8px;background:var(--green-glow);color:var(--green-dark);cursor:pointer;">÷</button>
+                            <button onclick="calcBtn('4')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">4</button>
+                            <button onclick="calcBtn('5')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">5</button>
+                            <button onclick="calcBtn('6')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">6</button>
+                            <button onclick="calcBtn('×')" style="padding:14px;font-size:17px;font-weight:800;border:none;border-radius:8px;background:var(--green-glow);color:var(--green-dark);cursor:pointer;">×</button>
+                            <button onclick="calcBtn('1')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">1</button>
+                            <button onclick="calcBtn('2')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">2</button>
+                            <button onclick="calcBtn('3')" style="padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">3</button>
+                            <button onclick="calcBtn('-')" style="padding:14px;font-size:18px;font-weight:800;border:none;border-radius:8px;background:var(--green-glow);color:var(--green-dark);cursor:pointer;">−</button>
+                            <button onclick="calcBtn('0')" style="grid-column:span 2;padding:14px;font-size:17px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">0</button>
+                            <button onclick="calcBtn('.')" style="padding:14px;font-size:18px;font-weight:700;border:none;border-radius:8px;background:var(--gray-100);cursor:pointer;">.</button>
+                            <button onclick="calcBtn('+')" style="padding:14px;font-size:18px;font-weight:800;border:none;border-radius:8px;background:var(--green-glow);color:var(--green-dark);cursor:pointer;">+</button>
+                            <button onclick="calcBtn('=')" style="grid-column:span 4;padding:16px;font-size:18px;font-weight:900;border:none;border-radius:10px;background:linear-gradient(135deg,var(--green-main),var(--green-light));color:#fff;cursor:pointer;letter-spacing:1px;">=</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ VENTES TAB ══════════════════════════════════ -->
+                <div id="tab-ventes" class="tab-pane">
+                    <div class="card">
+                        <div class="card-title">📜 <span data-i18n="salesHistory">Historique des Ventes</span></div>
+                        <div id="ventes-lock" class="lock-screen">
+                            <div class="lock-icon">🔒</div>
+                            <h3 data-i18n="protectedAccess">Accès Protégé</h3>
+                            <p data-i18n="enterPwHistory">Entrez le mot de passe pour accéder à l'historique</p>
+                            <div class="lock-form">
+                                <input type="password" class="form-control" id="ventes-pw" data-i18n-ph="pwPlaceholder" placeholder="Mot de passe…" style="margin-bottom:10px;" onkeypress="if(event.key==='Enter')unlockVentes()">
+                                <button class="btn btn-primary" style="width:100%;" onclick="unlockVentes()" data-i18n="unlock">🔓 Déverrouiller</button>
+                            </div>
+                        </div>
+                        <div id="ventes-content" style="display:none;">
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="ventes-search" data-i18n-ph="search" placeholder="Rechercher…" oninput="filterSales()">
+                            </div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:var(--gray-50);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
+                                <div>
+                                    <div id="sales-actions-title" style="font-size:12px;font-weight:900;color:var(--gray-700);">Actions rapides</div>
+                                    <div id="sales-recover-count" style="font-size:11px;color:var(--gray-600);">0 lignes recuperables (sans limite de duree)</div>
+                                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--gray-600);margin-top:6px;cursor:pointer;">
+                                        <input type="checkbox" id="sales-select-all-visible" onchange="toggleSelectAllSales(this.checked)">
+                                        <span id="sales-select-all-label">Tout selectionner</span>
+                                    </label>
+                                </div>
+                                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                    <button id="sales-delete-btn" onclick="eraseSalesHistoryDirect()" class="btn btn-danger" style="font-size:12px;padding:8px 12px;">🗑️ Effacer historique</button>
+                                    <button id="sales-recover-btn" onclick="recoverSalesHistoryDirect()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Recuperer historique</button>
+                                    <button id="sales-delete-selected-btn" onclick="deleteSelectedSales()" class="btn btn-danger" style="font-size:12px;padding:8px 12px;">🗑️ Supprimer selection</button>
+                                    <button id="sales-recover-selected-btn" onclick="recoverSelectedSales()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#e8f5e9;color:#2e7d32;font-weight:700;cursor:pointer;">↺ Recuperer selection</button>
+                                    <button id="sales-permanent-delete-selected-btn" onclick="permanentlyDeleteSelectedSales()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#212121;color:#fff;font-weight:700;cursor:pointer;">💀 Supprimer definitivement</button>
+                                    <button id="sales-permanent-delete-all-btn" onclick="permanentlyDeleteAllSalesDeleted()" style="font-size:12px;padding:8px 12px;border:none;border-radius:6px;background:#4e342e;color:#fff;font-weight:700;cursor:pointer;">☠️ Tout supprimer definitivement</button>
+                                </div>
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th id="sales-th-invoice-label">N° Fact.</th>
+                                        <th id="sales-th-date-label" data-i18n="date">Date</th>
+                                        <th id="sales-th-client-label">Client</th>
+                                        <th id="sales-th-products-label">Produits</th>
+                                        <th id="sales-th-total-label">Total</th>
+                                        <th id="sales-th-payment-label">Paiement</th>
+                                        <th id="sales-th-slip-label">Bon</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sales-table"></tbody>
+                            </table>
+                            <div style="margin-top:10px;background:var(--gray-50);border-radius:10px;padding:10px 12px;">
+                                <div id="sales-deleted-title" style="font-size:12px;font-weight:900;color:var(--gray-700);margin-bottom:8px;">Ventes supprimees</div>
+                                <div id="sales-deleted-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ STATS TAB ════════════════════════════════════ -->
+                <div id="tab-stats" class="tab-pane">
+                    <div id="stats-lock" class="lock-screen">
+                        <div class="lock-icon">🔒</div>
+                        <h3>Accès Protégé</h3>
+                        <p>Entrez le mot de passe pour voir les statistiques</p>
+                        <div class="lock-form">
+                            <input type="password" class="form-control" id="stats-pw" data-i18n-ph="pwPlaceholder" placeholder="Mot de passe…" style="margin-bottom:10px;" onkeypress="if(event.key==='Enter')unlockStats()">
+                            <button class="btn btn-primary" style="width:100%;" onclick="unlockStats()">🔓 Déverrouiller</button>
+                        </div>
+                    </div>
+                    <div id="stats-content" style="display:none;">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div id="s-label-ca-today" class="stat-label">🏦 CA Aujourd'hui</div>
+                                <div class="stat-value" id="s-ca-today">0 DH</div>
+                                <div id="s-sub-ca-today" style="font-size:10px;color:#888;margin-top:4px;">Total de toutes les ventes du jour</div>
+                            </div>
+                            <div class="stat-card orange">
+                                <div id="s-label-reglements" class="stat-label">💳 Règlements Clients (auj.)</div>
+                                <div class="stat-value" id="s-reglements">0 DH</div>
+                                <div id="s-sub-reglements" style="font-size:10px;color:#888;margin-top:4px;">Paiements reçus aujourd'hui</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#c62828;">
+                                <div id="s-label-credit" class="stat-label">💳 Ventes à Crédit (auj.)</div>
+                                <div class="stat-value" id="s-credit-ventes" style="color:#c62828;">0 DH</div>
+                                <div id="s-sub-credit" style="font-size:10px;color:#888;margin-top:4px;">Factures mode crédit</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#9c27b0;">
+                                <div id="s-label-net" class="stat-label">⭐ CA NET</div>
+                                <div class="stat-value" id="s-ca-net" style="color:#6a1b9a;">0 DH</div>
+                                <div id="s-sub-net" style="font-size:10px;color:#888;margin-top:4px;">CA + Règlements − Crédit − Retours</div>
+                            </div>
+                            <div class="stat-card blue">
+                                <div id="s-label-month-sales" class="stat-label">Total Ventes (mois)</div>
+                                <div class="stat-value" id="s-month">0 DH</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#00796b;">
+                                <div id="s-label-month-purchases" class="stat-label">Total Achats (mois)</div>
+                                <div class="stat-value" id="s-achats-mois" style="color:#00796b;">0 DH</div>
+                            </div>
+                            <div class="stat-card" style="border-left-color:#c2185b;">
+                                <div id="s-label-month-profit" class="stat-label">Bénéfice (mois)</div>
+                                <div class="stat-value" id="s-benefice-mois" style="color:#c2185b;">0 DH</div>
+                                <div id="s-sub-month-profit" style="font-size:10px;color:#888;margin-top:4px;">Ventes − Achats</div>
+                            </div>
+                        </div>
+                        <div class="date-range-bar">
+                            <span id="stats-period-title" style="font-size:14px;font-weight:900;color:var(--green-dark);">📅 Bénéfices sur période :</span>
+                            <label>Début <input type="date" id="stat-date-from" onchange="renderStats()"></label>
+                            <label>Fin <input type="date" id="stat-date-to" onchange="renderStats()"></label>
+                            <div style="background:var(--green-glow);padding:10px 16px;border-radius:8px;font-weight:900;font-size:16px;color:var(--green-dark);">💰 <span id="s-benefice-periode">0 DH</span></div>
+                        </div>
+                        <div class="card">
+                            <div id="stats-top-products-title" class="card-title">📈 Top Produits Vendus</div>
+                            <div id="top-products"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ PARAMETRES TAB ════════════════════════════════ -->
+                <!-- ══ FACTURATION TAB ════════════════════════════════ -->
+                <div id="tab-factures" class="tab-pane">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div class="card">
+                            <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                                <span>🧾 Nouvelle Facture</span>
+                                <button onclick="cancelFacture()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:12px;">✕ Annuler</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>🔢 N° Facture <small style="color:var(--gray-600)">(auto)</small></label>
+                                    <input class="form-control" type="text" id="fact-num" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>📅 Date</label>
+                                    <input class="form-control" type="date" id="fact-date">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>👤 Client</label>
+                                    <input class="form-control" type="text" id="fact-client" placeholder="Nom du client…" list="fact-client-dl">
+                                    <datalist id="fact-client-dl"></datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label>📞 Téléphone</label>
+                                    <input class="form-control" type="tel" id="fact-phone" placeholder="+212…">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>📍 Adresse</label>
+                                <input class="form-control" type="text" id="fact-address" placeholder="Adresse du client…">
+                            </div>
+                            <div style="background:var(--gray-50);border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:8px;">➕ Ajouter un produit</div>
+                                <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end;">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Produit</label>
+                                        <input class="form-control" type="text" id="fact-prod-name" placeholder="Recherche…" list="fact-prod-dl">
+                                        <datalist id="fact-prod-dl"></datalist>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Quantité</label>
+                                        <input class="form-control" type="number" id="fact-prod-qty" step="0.01" min="0.01" value="1">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Prix Unit. DH</label>
+                                        <input class="form-control" type="number" id="fact-prod-price" step="0.01" min="0">
+                                    </div>
+                                    <button class="btn btn-primary" style="padding:10px;" onclick="addFactureLine()">Ajouter</button>
+                                </div>
+                            </div>
+                            <div id="fact-lines-list"></div>
+                            <div class="form-row" style="margin-top:10px;">
+                                <div class="form-group">
+                                    <label>💳 Mode de paiement</label>
+                                    <select class="form-control" id="fact-paymode">
+                                        <option value="especes">💵 Espèces</option>
+                                        <option value="credit">💳 Crédit</option>
+                                        <option value="virement">📲 Virement</option>
+                                        <option value="cheque">🏦 Chèque</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>📝 Note</label>
+                                    <input class="form-control" type="text" id="fact-note" placeholder="Note optionnelle…">
+                                </div>
+                            </div>
+                            <div class="achat-total-bar"><span>💰 TOTAL FACTURE</span><span id="fact-total">0.00 DH</span></div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+                                <button class="btn btn-primary" style="padding:13px;" onclick="saveFacture()">💾 ENREGISTRER</button>
+                                <button class="btn" style="padding:13px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;" onclick="printFacturePreview()">🖨️ IMPRIMER</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📋 Historique Factures</div>
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="fact-search" placeholder="Rechercher…" oninput="filterFactures()">
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th>N° Fact.</th>
+                                        <th>Date</th>
+                                        <th>Client</th>
+                                        <th>Total</th>
+                                        <th>Paiement</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fact-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ BON DE COMMANDE TAB ══════════════════════════ -->
+                <div id="tab-boncommande" class="tab-pane">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div class="card">
+                            <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                                <span>📋 Nouveau Bon de Commande</span>
+                                <button onclick="cancelBonCommande()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:12px;">✕ Annuler</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>🔢 N° BC <small style="color:var(--gray-600)">(auto)</small></label>
+                                    <input class="form-control" type="text" id="bc-num" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>📅 Date</label>
+                                    <input class="form-control" type="date" id="bc-date">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>🏭 Fournisseur</label>
+                                    <input class="form-control" type="text" id="bc-supplier" placeholder="Nom fournisseur…" list="bc-supplier-dl">
+                                    <datalist id="bc-supplier-dl"></datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label>📅 Date livraison prévue</label>
+                                    <input class="form-control" type="date" id="bc-delivery-date">
+                                </div>
+                            </div>
+                            <div style="background:var(--gray-50);border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:8px;">➕ Ajouter un produit</div>
+                                <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end;">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Produit</label>
+                                        <input class="form-control" type="text" id="bc-prod-name" placeholder="Recherche…" list="bc-prod-dl">
+                                        <datalist id="bc-prod-dl"></datalist>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Quantité</label>
+                                        <input class="form-control" type="number" id="bc-prod-qty" step="0.01" min="0.01" value="1">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Prix Unit. DH</label>
+                                        <input class="form-control" type="number" id="bc-prod-price" step="0.01" min="0">
+                                    </div>
+                                    <button class="btn btn-primary" style="padding:10px;" onclick="addBonCommandeLine()">Ajouter</button>
+                                </div>
+                            </div>
+                            <div id="bc-lines-list"></div>
+                            <div class="form-group">
+                                <label>📝 Conditions</label>
+                                <textarea class="form-control" id="bc-conditions" rows="2" placeholder="Conditions de commande…"></textarea>
+                            </div>
+                            <div class="achat-total-bar"><span>💰 TOTAL COMMANDE</span><span id="bc-total">0.00 DH</span></div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+                                <button class="btn btn-primary" style="padding:13px;" onclick="saveBonCommande()">💾 ENREGISTRER</button>
+                                <button class="btn" style="padding:13px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;" onclick="printBonCommandePreview()">🖨️ IMPRIMER</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📋 Historique Bons de Commande</div>
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="bc-search" placeholder="Rechercher…" oninput="filterBonCommandes()">
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th>N° BC</th>
+                                        <th>Date</th>
+                                        <th>Fournisseur</th>
+                                        <th>Total</th>
+                                        <th>Statut</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bc-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══ BON DE LIVRAISON TAB ═════════════════════════ -->
+                <div id="tab-bonlivraison" class="tab-pane">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                        <div class="card">
+                            <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                                <span>🚛 Nouveau Bon de Livraison</span>
+                                <button onclick="cancelBonLivraison()" style="border:none;background:#ffebee;color:var(--red);border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:12px;">✕ Annuler</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>🔢 N° BL <small style="color:var(--gray-600)">(auto)</small></label>
+                                    <input class="form-control" type="text" id="bl-num" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>📅 Date</label>
+                                    <input class="form-control" type="date" id="bl-date">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>👤 Client</label>
+                                    <input class="form-control" type="text" id="bl-client" placeholder="Nom du client…" list="bl-client-dl">
+                                    <datalist id="bl-client-dl"></datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label>📍 Adresse de livraison</label>
+                                    <input class="form-control" type="text" id="bl-address" placeholder="Adresse…">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>📎 Réf. Bon de Commande</label>
+                                    <input class="form-control" type="text" id="bl-bc-ref" placeholder="N° BC (optionnel)…" list="bl-bc-dl">
+                                    <datalist id="bl-bc-dl"></datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label>🚚 Transporteur</label>
+                                    <input class="form-control" type="text" id="bl-transporteur" placeholder="Nom transporteur…">
+                                </div>
+                            </div>
+                            <div style="background:var(--gray-50);border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:8px;">➕ Ajouter un produit</div>
+                                <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end;">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Produit</label>
+                                        <input class="form-control" type="text" id="bl-prod-name" placeholder="Recherche…" list="bl-prod-dl">
+                                        <datalist id="bl-prod-dl"></datalist>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Quantité</label>
+                                        <input class="form-control" type="number" id="bl-prod-qty" step="0.01" min="0.01" value="1">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label>Prix Unit. DH</label>
+                                        <input class="form-control" type="number" id="bl-prod-price" step="0.01" min="0">
+                                    </div>
+                                    <button class="btn btn-primary" style="padding:10px;" onclick="addBonLivraisonLine()">Ajouter</button>
+                                </div>
+                            </div>
+                            <div id="bl-lines-list"></div>
+                            <div class="form-group">
+                                <label>📝 Observations</label>
+                                <textarea class="form-control" id="bl-observations" rows="2" placeholder="Observations…"></textarea>
+                            </div>
+                            <div class="achat-total-bar"><span>💰 TOTAL LIVRAISON</span><span id="bl-total">0.00 DH</span></div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+                                <button class="btn btn-primary" style="padding:13px;" onclick="saveBonLivraison()">💾 ENREGISTRER</button>
+                                <button class="btn" style="padding:13px;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;font-weight:800;" onclick="printBonLivraisonPreview()">🖨️ IMPRIMER</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📋 Historique Bons de Livraison</div>
+                            <div class="zone-search" style="margin-bottom:12px;">
+                                <span class="zsearch-icon">🔍</span>
+                                <input type="text" id="bl-search" placeholder="Rechercher…" oninput="filterBonLivraisons()">
+                            </div>
+                            <table class="data-table" style="margin-top:0;">
+                                <thead>
+                                    <tr>
+                                        <th>N° BL</th>
+                                        <th>Date</th>
+                                        <th>Client</th>
+                                        <th>Total</th>
+                                        <th>Réf. BC</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bl-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-parametres" class="tab-pane">
+                    <!-- LOCK PARAMETRES -->
+                    <div id="param-lock" style="display:flex;align-items:center;justify-content:center;min-height:340px;">
+                        <div class="lock-screen">
+                            <div class="lock-icon">🔒</div>
+                            <h3>Accès Protégé</h3>
+                            <p>Entrez le mot de passe pour accéder aux Paramètres</p>
+                            <div class="lock-form">
+                                <input type="password" class="form-control" id="param-lock-pw" data-i18n-ph="pwPlaceholder" placeholder="Mot de passe…" style="margin-bottom:10px;" onkeypress="if(event.key==='Enter')unlockParam()">
+                                <button class="btn btn-primary" style="width:100%;" onclick="unlockParam()">🔓 Déverrouiller</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CONTENT PARAMETRES -->
+                    <div id="param-content" style="display:none;">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+                            <!-- Langue -->
+                            <div class="card">
+                                <div id="param-lang-title" class="card-title">🌐 Langue des Bons & Tickets</div>
+                                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
+                                    <button class="btn btn-primary" id="lang-btn-fr" onclick="setLang('fr')" style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;"><span style="font-size:22px;">🇫🇷</span><strong id="param-lang-fr-label">Français</strong></button>
+                                    <button class="btn" id="lang-btn-en" onclick="setLang('en')" style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:2px solid var(--gray-200);"><span style="font-size:22px;">🇬🇧</span><strong id="param-lang-en-label">English</strong></button>
+                                    <button class="btn" id="lang-btn-ar" onclick="setLang('ar')" style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:2px solid var(--gray-200);"><span style="font-size:22px;">🇸🇦</span><strong id="param-lang-ar-label">عربي</strong></button>
+                                </div>
+                                <div id="param-lang-hint" style="background:var(--green-glow);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--green-dark);font-weight:700;">
+                                    ℹ️ La langue sélectionnée s'applique à tous les bons et tickets imprimés (Facture, Bon d'achat, Bon de retour).
+                                </div>
+                            </div>
+                            <!-- Couleurs -->
+                            <div class="card">
+                                <div id="param-theme-title" class="card-title">🎨 Couleurs & Thème</div>
+                                <div style="display:flex;gap:10px;margin-bottom:16px;">
+                                    <div class="theme-btn active" id="theme-matin" onclick="setTheme('matin')">🌅 Matin</div>
+                                    <div class="theme-btn" id="theme-soir" onclick="setTheme('soir')">🌙 Soir</div>
+                                </div>
+                                <div id="param-theme-palettes-label" style="font-size:12px;font-weight:800;color:var(--gray-600);margin-bottom:10px;">🎨 Palettes prédéfinies :</div>
+                                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;">
+                                    <div class="color-preset" style="background:#22a355;" onclick="applyCustomColor('#22a355')" title="Vert (défaut)"></div>
+                                    <div class="color-preset" style="background:#1565c0;" onclick="applyCustomColor('#1565c0')" title="Bleu"></div>
+                                    <div class="color-preset" style="background:#c62828;" onclick="applyCustomColor('#c62828')" title="Rouge"></div>
+                                    <div class="color-preset" style="background:#6a1b9a;" onclick="applyCustomColor('#6a1b9a')" title="Violet"></div>
+                                    <div class="color-preset" style="background:#e65100;" onclick="applyCustomColor('#e65100')" title="Orange"></div>
+                                    <div class="color-preset" style="background:#00695c;" onclick="applyCustomColor('#00695c')" title="Teal"></div>
+                                    <div class="color-preset" style="background:#283593;" onclick="applyCustomColor('#283593')" title="Indigo"></div>
+                                    <div class="color-preset" style="background:#37474f;" onclick="applyCustomColor('#37474f')" title="Gris foncé"></div>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <input type="color" class="color-input" id="param-color" value="#22a355" oninput="applyCustomColor(this.value)">
+                                    <span id="param-theme-custom-color-label" style="font-size:13px;color:var(--gray-600);">Couleur personnalisée</span>
+                                    <button id="param-theme-reset-btn" class="btn" style="padding:6px 12px;font-size:12px;border:2px solid var(--gray-200);" onclick="resetColor()">↺ Défaut</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div id="param-company-title" class="card-title">🏢 Informations Société</div>
+                                <div class="form-group"><label id="param-company-name-label">📛 Nom de la société</label><input class="form-control" type="text" id="param-company-name" placeholder="ASIL CAISSE"></div>
+                                <div class="form-group"><label id="param-company-addr-label">📍 Adresse</label><input class="form-control" type="text" id="param-company-addr" placeholder="Adresse…"></div>
+                                <div class="form-group"><label id="param-company-tel-label">📞 Téléphone</label><input class="form-control" type="tel" id="param-company-tel" placeholder="+212…"></div>
+                                <button id="param-company-save-btn" class="btn btn-primary" style="width:100%;" onclick="saveCompanyInfo()">💾 Enregistrer</button>
+                            </div>
+                            <div class="card">
+                                <div id="param-logo-title" class="card-title">🖼️ Logo & Image Société</div>
+                                <div class="upload-zone" id="logo-upload-zone" onclick="document.getElementById('logo-file-inp').click()" style="margin-bottom:10px;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;">
+                                    <img id="logo-preview" alt="Apercu du logo" style="max-width:100%;max-height:120px;display:none;border-radius:8px;object-fit:contain;">
+                                    <div id="logo-upload-ph" style="text-align:center;color:var(--gray-600);">
+                                        <div style="font-size:36px;">🖼️</div>
+                                        <div id="param-logo-click-label" style="font-weight:700;margin-top:4px;">Cliquer pour ajouter le logo</div>
+                                        <div id="param-logo-format-label" style="font-size:11px;margin-top:2px;">PNG, JPG, SVG — max 2 MB</div>
+                                    </div>
+                                </div>
+                                <input type="file" id="logo-file-inp" accept="image/*" style="display:none;" onchange="previewLogo(event)">
+                                <div style="display:flex;gap:8px;">
+                                    <button id="param-logo-choose-btn" class="btn btn-primary" style="flex:1;font-size:12px;" onclick="document.getElementById('logo-file-inp').click()">📁 Choisir image</button>
+                                    <button class="btn btn-danger" style="font-size:12px;padding:8px 12px;" onclick="removeLogo()">🗑️</button>
+                                </div>
+                                <p id="param-logo-note" style="font-size:11px;color:var(--gray-600);margin-top:8px;">✅ Apparaît sur tous les bons, tickets et factures imprimés.</p>
+                            </div>
+                            <!-- APERCU TICKET -->
+                            <div class="card">
+                                <div id="param-ticket-preview-title" class="card-title">👁️ Aperçu du Ticket</div>
+                                <div class="ticket-preview-box" id="ticket-preview-live">
+                                    <div class="tp-header">
+                                        <img id="tp-logo-img" alt="Logo societe" class="tp-logo" style="display:none;">
+                                        <div class="tp-name" id="tp-company-name">ASIL CAISSE</div>
+                                        <div style="font-size:11px;color:#888;" id="tp-company-addr"></div>
+                                        <div style="font-size:11px;color:#888;" id="tp-company-tel"></div>
+                                        <div style="font-size:11px;margin-top:4px;" id="tp-lang-label">🇫🇷 Ticket de Vente — N°0001</div>
+                                    </div>
+                                    <div class="tp-row"><span>Produit exemple</span><span>2 × 25.00 DH</span></div>
+                                    <div class="tp-row"><span>Autre produit</span><span>1 × 50.00 DH</span></div>
+                                    <div class="tp-total" id="tp-total-line"><span>TOTAL</span><span>100.00 DH</span></div>
+                                    <div style="text-align:center;font-size:10px;color:#aaa;margin-top:8px;border-top:1px dashed #ccc;padding-top:6px;" id="tp-footer">Merci pour votre visite !</div>
+                                </div>
+                                <button id="param-ticket-preview-refresh-btn" class="btn btn-primary" style="width:100%;margin-top:10px;" onclick="refreshTicketPreview()">🔄 Actualiser l'aperçu</button>
+                            </div>
+                            <div class="card">
+                                <div id="param-signature-title" class="card-title">✍️ Signature</div>
+                                <canvas id="signature-canvas" class="signature-canvas" width="280" height="110"></canvas>
+                                <div style="display:flex;gap:8px;margin-top:8px;">
+                                    <button id="param-signature-save-btn" class="btn btn-primary" style="flex:1;font-size:12px;" onclick="saveSignature()">💾 Sauvegarder</button>
+                                    <button id="param-signature-clear-btn" class="btn btn-danger" style="flex:1;font-size:12px;" onclick="clearSignature()">🗑️ Effacer</button>
+                                </div>
+                            </div>
+                            <!-- MOT DE PASSE -->
+                            <div class="card">
+                                <div id="param-password-title" class="card-title">🔑 Changer le Mot de Passe</div>
+                                <div class="form-group"><label id="param-pw-cur-label">🔒 Mot de passe actuel</label><input class="form-control" type="password" id="param-pw-cur" placeholder="Actuel…"></div>
+                                <div class="form-group"><label id="param-pw-new-label">🆕 Nouveau mot de passe</label><input class="form-control" type="password" id="param-pw-new" placeholder="Nouveau (min. 4 car.)…" minlength="4"></div>
+                                <div class="form-group"><label id="param-pw-conf-label">✅ Confirmer le nouveau</label><input class="form-control" type="password" id="param-pw-conf" placeholder="Confirmer…"></div>
+                                <button id="param-pw-update-btn" class="btn btn-primary" style="width:100%;" onclick="paramChangePw()">🔑 Mettre à jour le mot de passe</button>
+                            </div>
+                            <div class="card">
+                                <div id="param-sound-title" class="card-title">🔔 Sonnerie</div>
+                                <label class="sound-option"><span id="param-sound-beep-label">🔔 Bip classique</span><div><input type="radio" name="sound-type" value="beep" checked onchange="setSoundType('beep')"> <button onclick="testSound('beep')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-double-label">🎵 Double bip</span><div><input type="radio" name="sound-type" value="double" onchange="setSoundType('double')"> <button onclick="testSound('double')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-melody-label">🎶 Mélodie</span><div><input type="radio" name="sound-type" value="melody" onchange="setSoundType('melody')"> <button onclick="testSound('melody')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-success-label">✅ Validation</span><div><input type="radio" name="sound-type" value="success" onchange="setSoundType('success')"> <button onclick="testSound('success')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-warn-label">⚠️ Alerte</span><div><input type="radio" name="sound-type" value="warn" onchange="setSoundType('warn')"> <button onclick="testSound('warn')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-delete-label">🗑️ Suppression</span><div><input type="radio" name="sound-type" value="delete" onchange="setSoundType('delete')"> <button onclick="testSound('delete')" style="border:none;background:var(--green-glow);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px;">▶</button></div></label>
+                                <label class="sound-option"><span id="param-sound-mute-label">🔕 Muet</span><input type="radio" name="sound-type" value="mute" onchange="setSoundType('mute')"></label>
+                            </div>
+                            <div class="card">
+                                <div id="param-backup-title" class="card-title">Sauvegarde Hors Ligne</div>
+                                <p id="param-backup-hint" style="font-size:12px;color:var(--gray-600);margin-bottom:10px;line-height:1.5;">Les donnees sont stockees localement en mode hors ligne (IndexedDB). Exportez un fichier de secours regulierement.</p>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                                    <button id="param-backup-export-btn" class="btn btn-primary" type="button" onclick="exportBackup()"><svg class="icon-svg" style="width:14px;height:14px;margin-right:6px;"><use href="#i-backup"></use></svg>Exporter JSON</button>
+                                    <button id="param-backup-import-btn" class="btn" type="button" style="border:2px solid var(--gray-200);" onclick="triggerImportBackup()"><svg class="icon-svg" style="width:14px;height:14px;margin-right:6px;"><use href="#i-upload"></use></svg>Importer JSON</button>
+                                    <button id="param-backup-sync-btn" class="btn" type="button" style="grid-column:1/-1;border:2px solid var(--gray-200);" onclick="save()">Synchroniser maintenant</button>
+                                </div>
+                                <input id="backup-file-input" type="file" accept="application/json,.json" style="display:none;" onchange="importBackupFile(event)">
+                                <div id="backup-last-status" style="font-size:11px;color:var(--gray-600);margin-top:10px;"></div>
+                            </div>
+                            <!-- CORBEILLE -->
+                            <div class="card" style="grid-column:1/-1;">
+                                <div class="card-title"><span id="param-trash-title">🗑️ Corbeille</span> <span id="trash-badge" style="font-size:13px;font-weight:700;color:var(--red);"></span></div>
+                                <div id="param-trash-hint" style="font-size:12px;color:var(--gray-600);margin-bottom:12px;">Les éléments supprimés (clients, fournisseurs, produits) sont conservés ici et récupérables à tout moment.</div>
+                                <div id="trash-list"></div>
+                                <div style="margin-top:12px;">
+                                    <button id="param-trash-empty-btn" onclick="emptyTrash()" class="btn btn-danger" style="font-size:12px;padding:8px 16px;">💀 Vider la corbeille définitivement</button>
+                                </div>
+                            </div>
+                            <!-- EFFACEMENT DES DONNÉES PAR ZONE -->
+                            <div class="card" style="grid-column:1/-1;">
+                                <div id="param-erase-title" class="card-title">🗑️ Effacement des Données par Zone</div>
+                                <div id="param-erase-warning" style="background:#fff3e0;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#e65100;font-weight:700;">
+                                    ⚠️ Les données effacées restent récupérables à tout moment via le bouton "Récupérer".
+                                </div>
+                                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+                                    <div style="background:var(--gray-50);border-radius:10px;padding:14px;">
+                                        <div id="param-erase-sales-title" style="font-weight:900;font-size:14px;margin-bottom:8px;">🛒 Historique des ventes</div>
+                                        <div style="font-size:12px;color:var(--gray-600);margin-bottom:10px;" id="erase-ventes-count">—</div>
+                                        <div style="display:flex;gap:6px;">
+                                            <button id="param-erase-sales-btn" onclick="eraseZone('ventes')" class="btn btn-danger" style="flex:1;font-size:12px;padding:8px;">🗑️ Effacer</button>
+                                            <button id="param-recover-sales-btn" onclick="recoverZone('ventes')" style="flex:1;font-size:12px;padding:8px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Récupérer</button>
+                                        </div>
+                                    </div>
+                                    <div style="background:var(--gray-50);border-radius:10px;padding:14px;">
+                                        <div id="param-erase-returns-title" style="font-weight:900;font-size:14px;margin-bottom:8px;">↩️ Historique des retours</div>
+                                        <div style="font-size:12px;color:var(--gray-600);margin-bottom:10px;" id="erase-retours-count">—</div>
+                                        <div style="display:flex;gap:6px;">
+                                            <button id="param-erase-returns-btn" onclick="eraseZone('retours')" class="btn btn-danger" style="flex:1;font-size:12px;padding:8px;">🗑️ Effacer</button>
+                                            <button id="param-recover-returns-btn" onclick="recoverZone('retours')" style="flex:1;font-size:12px;padding:8px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Récupérer</button>
+                                        </div>
+                                    </div>
+                                    <div style="background:var(--gray-50);border-radius:10px;padding:14px;">
+                                        <div id="param-erase-purchases-title" style="font-weight:900;font-size:14px;margin-bottom:8px;">🛍️ Achats du mois</div>
+                                        <div style="font-size:12px;color:var(--gray-600);margin-bottom:10px;" id="erase-achats-count">—</div>
+                                        <div style="display:flex;gap:6px;">
+                                            <button id="param-erase-purchases-btn" onclick="eraseZone('achats')" class="btn btn-danger" style="flex:1;font-size:12px;padding:8px;">🗑️ Effacer</button>
+                                            <button id="param-recover-purchases-btn" onclick="recoverZone('achats')" style="flex:1;font-size:12px;padding:8px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Récupérer</button>
+                                        </div>
+                                    </div>
+                                    <div style="background:var(--gray-50);border-radius:10px;padding:14px;">
+                                        <div id="param-erase-ops-title" style="font-weight:900;font-size:14px;margin-bottom:8px;">💳 Opérations clients du mois</div>
+                                        <div style="font-size:12px;color:var(--gray-600);margin-bottom:10px;" id="erase-ops-count">—</div>
+                                        <div style="display:flex;gap:6px;">
+                                            <button id="param-erase-ops-btn" onclick="eraseZone('operations')" class="btn btn-danger" style="flex:1;font-size:12px;padding:8px;">🗑️ Effacer</button>
+                                            <button id="param-recover-ops-btn" onclick="recoverZone('operations')" style="flex:1;font-size:12px;padding:8px;border:none;border-radius:6px;background:#e3f2fd;color:#1565c0;font-weight:700;cursor:pointer;">↺ Récupérer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /grid -->
+                    </div>
+                    <!-- /param-content -->
+                </div>
+
+            </div>
+            <!-- /main-content -->
+        </div>
+        <!-- /main-area -->
+    </div>
+    <!-- /app -->
+
+    <!-- ══════ MODALS ═════════════════════════════════════════ -->
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="prod-modal-title" data-i18n="newProduct">📦 Nouveau Produit</h2>
+            <div class="form-group">
+                <label>📸 <span data-i18n="photo">Photo</span></label>
+                <div class="upload-zone" id="upload-zone" onclick="document.getElementById('prod-img-inp').click()">
+                    <div id="upload-ph">📷<br><small data-i18n="clickAddPhoto">Cliquer pour ajouter une photo</small></div>
+                    <img id="upload-preview" alt="Apercu produit" class="upload-preview" style="display:none;">
+                </div>
+                <input type="file" id="prod-img-inp" accept="image/*" style="display:none;" onchange="previewProdImg(event)">
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label data-i18n="code">Code *</label><input class="form-control" type="text" id="p-code"></div>
+                <div class="form-group"><label data-i18n="name">Nom *</label><input class="form-control" type="text" id="p-name"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Prix vente (DH) *</label><input class="form-control" type="number" id="p-price" step="0.01"></div>
+                <div class="form-group"><label>Prix achat (DH)</label><input class="form-control" type="number" id="p-buy-price" step="0.01" placeholder="0.00"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Stock initial *</label><input class="form-control" type="number" id="p-stock" step="0.01"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Stock minimum (alerte)</label><input class="form-control" type="number" id="p-threshold" value="10"></div>
+                <div class="form-group">
+                    <label data-i18n="unit">Unité *</label>
+                    <select class="form-control" id="p-unit">
+          <option>unité</option><option>kg</option><option>L</option><option>paquet</option><option>boîte</option>
+        </select>
+                </div>
+            </div>
+            <input type="hidden" id="p-edit-idx">
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveProduct()" data-i18n="save">💾 Enregistrer</button>
+                <button class="btn btn-danger" onclick="closeProdModal()" data-i18n="cancel">❌ Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Modal -->
+    <div id="client-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="cli-modal-title">👤 Nouveau Client</h2>
+            <div class="form-row">
+                <div class="form-group"><label>Nom *</label><input class="form-control" type="text" id="c-name" placeholder="Nom complet…"></div>
+                <div class="form-group"><label>Téléphone</label><input class="form-control" type="tel" id="c-phone" placeholder="+212…"></div>
+            </div>
+            <div class="form-group"><label>Adresse</label><input class="form-control" type="text" id="c-addr" placeholder="Adresse…"></div>
+            <div class="form-row">
+                <div class="form-group"><label>📅 Date d'entrée</label><input class="form-control" type="date" id="c-entry-date"></div>
+                <div class="form-group"><label>💳 Mode de paiement</label>
+                    <select class="form-control" id="c-paymode-sel">
+          <option value="any">🔄 Tous</option>
+          <option value="cash">💵 Espèces</option>
+          <option value="credit">💳 Crédit</option>
+          <option value="cheque">🏦 Chèque</option>
+        </select>
+                </div>
+            </div>
+            <div class="form-group"><label>📝 Remarque</label><textarea class="form-control" id="c-note" rows="2" placeholder="Remarque sur le client…"></textarea></div>
+            <div class="form-group" id="c-credit-initial-group">
+                <label>💳 Solde de crédit initial (DH) <small style="color:#888;font-weight:400;">— si le client a déjà un crédit antérieur</small></label>
+                <input class="form-control" type="number" id="c-credit-initial" placeholder="0.00" step="0.01" min="0" value="0">
+            </div>
+            <input type="hidden" id="c-edit-idx">
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveClient()">💾 Enregistrer</button>
+                <button class="btn btn-danger" onclick="closeClientModal()">❌ Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplier Modal -->
+    <div id="supplier-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="sup-modal-title">🏭 Nouveau Fournisseur</h2>
+            <div class="form-row">
+                <div class="form-group"><label>Nom *</label><input class="form-control" type="text" id="s-name" placeholder="Nom du fournisseur…"></div>
+                <div class="form-group"><label>Téléphone</label><input class="form-control" type="tel" id="s-phone" placeholder="+212…"></div>
+            </div>
+            <div class="form-group"><label>Adresse</label><input class="form-control" type="text" id="s-addr" placeholder="Adresse…"></div>
+            <div class="form-row">
+                <div class="form-group"><label>📅 Date d'entrée</label><input class="form-control" type="date" id="s-entry-date"></div>
+                <div class="form-group"><label>💳 Mode de paiement</label>
+                    <select class="form-control" id="s-paymode-sel">
+          <option value="cash">💵 Espèces</option>
+          <option value="credit">💳 Crédit</option>
+          <option value="cheque">🏦 Chèque</option>
+        </select>
+                </div>
+            </div>
+            <div class="form-group"><label>📝 Remarque</label><textarea class="form-control" id="s-note" rows="2" placeholder="Remarque sur le fournisseur…"></textarea></div>
+            <input type="hidden" id="s-edit-idx">
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveSupplier()">💾 Enregistrer</button>
+                <button class="btn btn-danger" onclick="closeSupplierModal()">❌ Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Modal -->
+    <div id="pw-modal" class="modal-overlay">
+        <div class="modal-box" style="max-width:380px;">
+            <h2 data-i18n="changePassword">🔑 Changer Mot de Passe</h2>
+            <div id="pw-alert"></div>
+            <div class="form-group"><label data-i18n="current">Actuel</label><input class="form-control" type="password" id="pw-current"></div>
+            <div class="form-group"><label data-i18n="newPw">Nouveau</label><input class="form-control" type="password" id="pw-new" minlength="4"></div>
+            <div class="form-group"><label data-i18n="confirm">Confirmer</label><input class="form-control" type="password" id="pw-confirm"></div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="changePw()" data-i18n="changePwBtn">✅ Changer</button>
+                <button class="btn btn-danger" onclick="closePwModal()" data-i18n="cancel">❌ Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard btn -->
+    <button class="btn-dashboard" id="btn-back-dashboard" onclick="showTab('dashboard',document.querySelector('[data-tab=dashboard]'))" style="display:none;"><svg class="icon-svg" style="width:14px;height:14px;margin-right:6px;"><use href="#i-home"></use></svg>Tableau de Bord</button>
+    <!-- Print ticket -->
+    <div id="print-ticket"></div>
+
+    <!-- ══════ JAVASCRIPT ══════════════════════════════════════ -->
+    <script src="assets/js/app.js?v=20260421a" defer></script>
+</body>
+
+</html>
