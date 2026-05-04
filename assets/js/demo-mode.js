@@ -191,23 +191,35 @@
     }
 
     // ───── Lifecycle ───────────────────────────────────────────
+    // The trial timer does NOT start on page load. It starts only
+    // after the user successfully logs in (detected by the host
+    // app's login screen disappearing). Once started, the start
+    // timestamp is persisted across reloads.
     var startedAt = readStartTimeSync();
-    if (!startedAt) {
-        startedAt = Date.now();
-        writeStartTime(startedAt);
-    }
-    // Async: also reconcile with IndexedDB (may have an earlier value)
+    // Async: reconcile with IndexedDB (may hold an earlier value).
     idbGet('startedAt').then(function (v) {
         var n = typeof v === 'number' ? v : parseInt(v, 10);
-        if (Number.isFinite(n) && n > 0 && n < startedAt) {
+        if (Number.isFinite(n) && n > 0 && (startedAt === null || n < startedAt)) {
             startedAt = n;
             writeStartTime(startedAt);
         }
     });
 
-    function elapsed() { return Date.now() - startedAt; }
-    function isExpired() { return elapsed() >= DEMO_DURATION_MS; }
-    function remainingMs() { return Math.max(0, DEMO_DURATION_MS - elapsed()); }
+    function hasStarted() { return startedAt !== null && startedAt > 0; }
+    function elapsed() { return hasStarted() ? Date.now() - startedAt : 0; }
+    function isExpired() { return hasStarted() && elapsed() >= DEMO_DURATION_MS; }
+    function remainingMs() {
+        if (!hasStarted()) return DEMO_DURATION_MS;
+        return Math.max(0, DEMO_DURATION_MS - elapsed());
+    }
+
+    function startTimer() {
+        if (hasStarted()) return;
+        startedAt = Date.now();
+        writeStartTime(startedAt);
+        showBanner();
+        armIntervals();
+    }
 
     function fmtMMSS(ms) {
         var total = Math.floor(ms / 1000);
@@ -360,7 +372,9 @@
     }
 
     // ───── Boot ────────────────────────────────────────────────
+    var intervalsArmed = false;
     function tick() {
+        if (!hasStarted()) return;
         if (isExpired()) {
             showExpired();
         } else {
@@ -368,14 +382,91 @@
         }
     }
 
-    function boot() {
-        if (isExpired()) {
-            showExpired();
-            return;
-        }
-        showBanner();
+    function armIntervals() {
+        if (intervalsArmed) return;
+        intervalsArmed = true;
         setInterval(tick, CHECK_INTERVAL_MS);
         setInterval(updateBanner, BANNER_TICK_MS);
+    }
+
+    // Watch the host app's login screen. When it transitions to
+    // hidden (login success), start the trial timer. We detect
+    // "hidden" via getComputedStyle so we don't depend on the
+    // exact mechanism the app uses (display:none, hidden attr,
+    // class change, removal from the DOM, etc.).
+    function loginScreenIsHidden(el) {
+        if (!el || !el.isConnected) return true;
+        if (el.hasAttribute && el.hasAttribute('hidden')) return true;
+        try {
+            var cs = window.getComputedStyle(el);
+            if (cs.display === 'none' || cs.visibility === 'hidden') return true;
+            if (parseFloat(cs.opacity) === 0) return true;
+        } catch (e) { /* ignore */ }
+        if (el.style && (el.style.display === 'none' || el.style.visibility === 'hidden')) return true;
+        return false;
+    }
+
+    function watchForLogin() {
+        var loginScreen = document.getElementById('login-screen');
+        if (!loginScreen) {
+            // Login screen isn't in the DOM yet; observe body for it.
+            if (!document.body) return;
+            var bodyObs = new MutationObserver(function () {
+                var ls = document.getElementById('login-screen');
+                if (ls) {
+                    bodyObs.disconnect();
+                    watchForLogin();
+                }
+            });
+            bodyObs.observe(document.body, { childList: true, subtree: true });
+            return;
+        }
+
+        if (loginScreenIsHidden(loginScreen)) {
+            startTimer();
+            return;
+        }
+
+        var observer = new MutationObserver(function () {
+            if (loginScreenIsHidden(loginScreen)) {
+                observer.disconnect();
+                if (parentObs) parentObs.disconnect();
+                startTimer();
+            }
+        });
+        observer.observe(loginScreen, {
+            attributes: true,
+            attributeFilter: ['style', 'class', 'hidden'],
+            childList: false,
+            subtree: false
+        });
+        // Also watch the parent for outright removal of the login screen.
+        var parentObs = null;
+        if (loginScreen.parentNode) {
+            parentObs = new MutationObserver(function () {
+                if (!loginScreen.isConnected) {
+                    parentObs.disconnect();
+                    observer.disconnect();
+                    startTimer();
+                }
+            });
+            parentObs.observe(loginScreen.parentNode, { childList: true });
+        }
+    }
+
+    function boot() {
+        // If a previous session already started the timer:
+        if (hasStarted()) {
+            if (isExpired()) {
+                showExpired();
+                return;
+            }
+            showBanner();
+            armIntervals();
+            return;
+        }
+        // Otherwise, stay invisible and wait for login to start the timer.
+        watchForLogin();
     }
 
     if (document.readyState === 'loading') {
