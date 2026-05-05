@@ -60,7 +60,8 @@
             title: 'Démonstration expirée',
             subtitle: 'La période de démonstration de 1 heure est terminée.',
             desc: 'Pour accéder à la version complète d\u2019ASIL CAISSE, merci de nous contacter.',
-            contact: 'Nous contacter',
+            whatsapp: 'WhatsApp',
+            email: 'E-mail',
             bannerPrefix: 'Démo : ',
             bannerSuffix: ' restantes',
             badge: 'DÉMO'
@@ -69,7 +70,8 @@
             title: 'Demo expired',
             subtitle: 'The 1-hour demo period has ended.',
             desc: 'To access the full version of ASIL CAISSE, please contact us.',
-            contact: 'Contact us',
+            whatsapp: 'WhatsApp',
+            email: 'Email',
             bannerPrefix: 'Demo: ',
             bannerSuffix: ' remaining',
             badge: 'DEMO'
@@ -78,12 +80,30 @@
             title: 'انتهت الفترة التجريبية',
             subtitle: 'انتهت فترة التجربة المجانية لمدة ساعة.',
             desc: 'للوصول إلى النسخة الكاملة من ASIL CAISSE، يرجى التواصل معنا.',
-            contact: 'تواصل معنا',
+            whatsapp: 'واتساب',
+            email: 'البريد الإلكتروني',
             bannerPrefix: 'تجريبي: ',
             bannerSuffix: ' متبقية',
             badge: 'تجريبي'
         }
     };
+
+    // Resolve a WhatsApp meta value into an https://wa.me/<digits> URL.
+    // Accepts:
+    //   - already-formed wa.me / api.whatsapp.com / https URLs (returned as-is)
+    //   - phone numbers in any common format (digits extracted)
+    //   - numbers with leading zero -> assumed Moroccan, prefixed with 212
+    function buildWhatsAppUrl(raw) {
+        if (!raw) return '';
+        var v = String(raw).trim();
+        if (!v) return '';
+        if (/^https?:\/\//i.test(v)) return v;
+        if (/^wa\.me\//i.test(v)) return 'https://' + v;
+        var digits = v.replace(/[^0-9]/g, '');
+        if (!digits) return '';
+        if (digits.charAt(0) === '0') digits = '212' + digits.slice(1);
+        return 'https://wa.me/' + digits;
+    }
 
     function detectLang() {
         try {
@@ -248,6 +268,41 @@
         overlay.setAttribute('aria-modal', 'true');
         overlay.setAttribute('aria-labelledby', 'asil-demo-title');
         overlay.dir = rtl ? 'rtl' : 'ltr';
+        var whatsappRaw = readMeta('demo-contact-whatsapp') || readMeta('demo-contact-url');
+        var whatsappUrl = buildWhatsAppUrl(whatsappRaw);
+        var emailAddr = readMeta('demo-contact-email');
+
+        // SVG icons used inside the contact buttons.
+        var iconWhatsApp = ''
+            + '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">'
+            + '<path d="M19.05 4.91A10 10 0 0 0 4.91 19.05L4 22l3.05-.91a10 10 0 0 0 12-16.18Zm-1.46 13.55a8.3 8.3 0 0 1-12.42 0l-.3-.3-1.81.55.55-1.77-.31-.32a8.3 8.3 0 1 1 14.29 1.84Zm-3.74-3.05c-.2-.1-1.18-.58-1.36-.65s-.32-.1-.45.1-.52.65-.64.78-.23.15-.43.05a6.8 6.8 0 0 1-2-1.23 7.5 7.5 0 0 1-1.39-1.73c-.15-.25 0-.39.11-.5s.25-.28.37-.42.16-.23.24-.39a.45.45 0 0 0 0-.43c0-.1-.45-1.08-.62-1.49s-.33-.34-.45-.35h-.39a.74.74 0 0 0-.54.25 2.26 2.26 0 0 0-.7 1.66 3.91 3.91 0 0 0 .82 2.07 9 9 0 0 0 3.45 3.05c.48.21.86.34 1.16.43a2.78 2.78 0 0 0 1.28.08 2.1 2.1 0 0 0 1.37-.97 1.69 1.69 0 0 0 .12-.96c-.05-.09-.18-.14-.38-.24Z"/>'
+            + '</svg>';
+        var iconMail = ''
+            + '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+            + '<rect x="3" y="5" width="18" height="14" rx="2"/>'
+            + '<path d="M3 7l9 6 9-6"/>'
+            + '</svg>';
+
+        var actionsHtml = '';
+        if (whatsappUrl || emailAddr) {
+            actionsHtml += '<div class="asil-demo-actions">';
+            if (whatsappUrl) {
+                actionsHtml += '<a class="asil-demo-btn asil-demo-btn--whatsapp" '
+                    + 'href="' + whatsappUrl + '" target="_blank" rel="noopener">'
+                    + iconWhatsApp
+                    + '<span class="asil-demo-btn-label">' + strings.whatsapp + '</span>'
+                    + '</a>';
+            }
+            if (emailAddr) {
+                actionsHtml += '<a class="asil-demo-btn asil-demo-btn--email" '
+                    + 'href="mailto:' + emailAddr + '">'
+                    + iconMail
+                    + '<span class="asil-demo-btn-label">' + strings.email + '</span>'
+                    + '</a>';
+            }
+            actionsHtml += '</div>';
+        }
+
         overlay.innerHTML = ''
             + '<div class="asil-demo-card">'
             + '  <div class="asil-demo-icon" aria-hidden="true">'
@@ -261,7 +316,7 @@
             + '  <h1 id="asil-demo-title" class="asil-demo-title"></h1>'
             + '  <p class="asil-demo-sub"></p>'
             + '  <p class="asil-demo-desc"></p>'
-            + '  <button type="button" class="asil-demo-btn" id="asil-demo-contact"></button>'
+            +    actionsHtml
             + '  <div class="asil-demo-langs" role="group" aria-label="Language">'
             + '    <button type="button" data-lang="fr">FR</button>'
             + '    <button type="button" data-lang="en">EN</button>'
@@ -272,13 +327,11 @@
         var titleEl = overlay.querySelector('.asil-demo-title');
         var subEl = overlay.querySelector('.asil-demo-sub');
         var descEl = overlay.querySelector('.asil-demo-desc');
-        var btnEl = overlay.querySelector('.asil-demo-btn');
         if (titleEl) titleEl.textContent = strings.title;
         if (subEl) subEl.textContent = strings.subtitle;
         if (descEl) descEl.textContent = strings.desc;
-        if (btnEl) btnEl.textContent = strings.contact;
 
-        // Highlight active language
+        // Highlight active language and wire switcher
         var langBtns = overlay.querySelectorAll('.asil-demo-langs button');
         for (var i = 0; i < langBtns.length; i++) {
             if (langBtns[i].getAttribute('data-lang') === lang) {
@@ -289,18 +342,6 @@
                 document.documentElement.setAttribute('lang', newLang);
                 try { window.currentLang = newLang; } catch (e) { /* ignore */ }
                 rebuildOverlay();
-            });
-        }
-
-        var contactBtn = overlay.querySelector('#asil-demo-contact');
-        if (contactBtn) {
-            contactBtn.addEventListener('click', function () {
-                // Try common contact channels in order: data-* on meta, then mailto fallback.
-                var url = readMeta('demo-contact-url');
-                var email = readMeta('demo-contact-email');
-                if (url) { window.open(url, '_blank', 'noopener'); return; }
-                if (email) { window.location.href = 'mailto:' + email; return; }
-                // No-op: just keep the overlay; the message itself instructs the user.
             });
         }
 
@@ -329,8 +370,10 @@
                 document.documentElement.style.overflow = 'hidden';
             } catch (e) { /* ignore */ }
 
-            // Try to log out from the app, if it exposes a logout fn
-            try { if (typeof window.doLogout === 'function') window.doLogout(); } catch (e) { /* ignore */ }
+            // The fullscreen overlay already blocks every interaction with the
+            // host app, so we deliberately do NOT call window.doLogout() here:
+            // the host's logout flow uses confirm() which would pop up on top
+            // of the expired card on every language switch (rebuildOverlay).
 
             // Re-attach if removed
             if (overlayObserver) overlayObserver.disconnect();
